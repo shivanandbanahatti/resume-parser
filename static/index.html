@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Parser | Professional Resume Analysis Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-file-alt"></i>
+                <span>Resume Parser</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1>Professional Resume Analysis Tool</h1>
+            <p class="subtitle">Upload your resume and get detailed insights powered by AI</p>
+        </div>
+
+        <div class="options-section">
+            <h3>Select Information to Extract</h3>
+            <div class="extraction-options">
+                <label class="option-checkbox">
+                    <input type="checkbox" name="extractOptions" value="personal_info" checked>
+                    Personal Information
+                </label>
+                <label class="option-checkbox">
+                    <input type="checkbox" name="extractOptions" value="contact_info" checked>
+                    Contact Information
+                </label>
+                <label class="option-checkbox">
+                    <input type="checkbox" name="extractOptions" value="education" checked>
+                    Education
+                </label>
+                <label class="option-checkbox">
+                    <input type="checkbox" name="extractOptions" value="experience" checked>
+                    Experience
+                </label>
+                <label class="option-checkbox">
+                    <input type="checkbox" name="extractOptions" value="skills" checked>
+                    Skills
+                </label>
+                <label class="option-checkbox">
+                    <input type="checkbox" name="extractOptions" value="summary" checked>
+                    Summary
+                </label>
+            </div>
+        </div>
+
+        <div class="upload-section">
+            <form id="uploadForm">
+                <div class="file-drop-zone" id="dropZone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag and drop your resume here or</p>
+                    <div class="file-input-wrapper">
+                        <button type="button" class="browse-btn">Browse Files</button>
+                        <input type="file" id="resumeFile" accept=".pdf,.docx" required>
+                    </div>
+                    <p class="file-info">Supported formats: PDF, DOCX</p>
+                </div>
+                <div class="selected-file hidden" id="selectedFile">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="file-name"></span>
+                    <button type="button" class="remove-file" title="Remove file">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <button type="submit" id="submitBtn" class="submit-btn" disabled>
+                    <span class="btn-text">Analyze Resume</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <h3>Analyzing Your Resume</h3>
+                <p class="processing-text">Our AI is carefully reviewing your resume...</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p class="note">This typically takes 30-60 seconds. Feel free to continue with other tasks.</p>
+            </div>
+        </div>
+
+        <div id="results" class="results hidden">
+            <div class="results-header">
+                <h2>Analysis Results</h2>
+                <button id="downloadBtn" class="download-btn">
+                    <i class="fas fa-download"></i>
+                    Download Report
+                </button>
+            </div>
+            <div class="result-sections">
+                <div class="result-section">
+                    <div class="section-header">
+                        <i class="fas fa-user"></i>
+                        <h3>Personal Information</h3>
+                    </div>
+                    <pre id="personalInfo"></pre>
+                </div>
+                <div class="result-section">
+                    <div class="section-header">
+                        <i class="fas fa-address-card"></i>
+                        <h3>Contact Information</h3>
+                    </div>
+                    <pre id="contactInfo"></pre>
+                </div>
+                <div class="result-section">
+                    <div class="section-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Education</h3>
+                    </div>
+                    <pre id="education"></pre>
+                </div>
+                <div class="result-section">
+                    <div class="section-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Experience</h3>
+                    </div>
+                    <pre id="experience"></pre>
+                </div>
+                <div class="result-section">
+                    <div class="section-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Skills</h3>
+                    </div>
+                    <pre id="skills"></pre>
+                </div>
+                <div class="result-section">
+                    <div class="section-header">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Summary</h3>
+                    </div>
+                    <pre id="summary"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Resume Parser. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html> 
